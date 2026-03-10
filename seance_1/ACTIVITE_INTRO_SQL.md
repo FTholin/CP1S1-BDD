@@ -313,7 +313,7 @@ SELECT * FROM morceaux;
 
 <details>
 <summary>Réponse 🔑</summary>
-<p>Il reste <b>2 morceaux</b> : Blinding Lights (4300M) , Shape of You (3900M) et Someone Like You (2900M).</p>
+<p>Il reste <b>3 morceaux</b> : Blinding Lights (4300M) , Shape of You (3900M) et Someone Like You (2900M).</p>
 <p>Relisez bien la condition : <code>< 2000</code> ne supprime que les lignes <b>strictement inférieures</b> à 2000.</p>
 </details>
 
@@ -353,5 +353,6 @@ Maintenant que vous maîtrisez les bases, mettez-les en pratique. Réalisez les 
 6. Supprimez les playlists qui contiennent moins de 10 morceaux.
 
 7. Affichez le résultat final.
+
 
 
