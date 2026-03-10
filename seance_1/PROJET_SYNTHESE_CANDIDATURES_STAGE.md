@@ -16,6 +16,11 @@ Les instructions fournies sont des lignes directrices générales. N'hésitez pa
 - `date_envoi` qui stocke une `DATE`
 - `statut` qui stocke du `TEXT`
 
+<details>
+<summary>Rappel 🔑</summary>
+<p>La syntaxe pour créer une table est : <code>CREATE TABLE nom_table (colonne1 TYPE, colonne2 TYPE, ...);</code></p>
+</details>
+
 ---
 
 **2.** Sous votre code actuel, ajoutez une première candidature :
@@ -46,34 +51,33 @@ Vérifiez deux choses :
 
 **4.** Passez à l'action ! Ajoutez **quatre autres candidatures** à la table.
 
-Insérez un identifiant, une entreprise, un poste, une date d'envoi et un statut pour chacune d'elles :
+Insérez un identifiant, une entreprise, un poste, une date d'envoi et un statut pour chacune d'elles. Voici les données :
 
-```sql
-INSERT INTO candidatures (id, entreprise, poste, date_envoi, statut)
-VALUES (2, 'Schneider Electric', 'Stage bureau d''études électrique', '2026-01-15', 'envoyée');
+| id | entreprise          | poste                               | date_envoi | statut  |
+|----|---------------------|-------------------------------------|------------|---------|
+| 2  | Schneider Electric  | Stage bureau d'études électrique    | 2026-01-15 | envoyée |
+| 3  | Sopra Steria        | Stage développeur Java              | 2026-01-18 | envoyée |
+| 4  | Renault             | Stage méthodes industrialisation    | 2026-02-01 | envoyée |
+| 5  | Vinci Construction  | Stage conducteur de travaux         | 2026-02-05 | envoyée |
 
-INSERT INTO candidatures (id, entreprise, poste, date_envoi, statut)
-VALUES (3, 'Sopra Steria', 'Stage développeur Java', '2026-01-18', 'envoyée');
+> 💡 En SQL, pour insérer une apostrophe dans une chaîne de texte (comme dans `d'études`), on la double : `d''études`.
 
-INSERT INTO candidatures (id, entreprise, poste, date_envoi, statut)
-VALUES (4, 'Renault', 'Stage méthodes industrialisation', '2026-02-01', 'envoyée');
-
-INSERT INTO candidatures (id, entreprise, poste, date_envoi, statut)
-VALUES (5, 'Vinci Construction', 'Stage conducteur de travaux', '2026-02-05', 'envoyée');
-```
-
-> 💡 Remarquez le `''` dans `d''études` : en SQL, pour insérer une apostrophe dans une chaîne de texte, on la double.
+<details>
+<summary>Indice 🔑</summary>
+<p>Reprenez la même structure que l'étape 2. Vous avez besoin d'une instruction <code>INSERT INTO ... VALUES ...</code> par candidature.</p>
+</details>
 
 ---
 
-**5.** Vérifiez que les 5 candidatures sont bien dans la table :
-
-```sql
-SELECT * FROM candidatures;
-```
+**5.** Vérifiez que les 5 candidatures sont bien dans la table.
 
 <details>
-<summary>Vérification 🔑</summary>
+<summary>Rappel 🔑</summary>
+<p>Quelle commande permet d'afficher toutes les données d'une table ? Relisez l'étape 3 si besoin.</p>
+</details>
+
+<details>
+<summary>Vérification ✅</summary>
 <p>La table doit contenir <b>5 lignes</b>, toutes avec le statut <code>'envoyée'</code>.</p>
 </details>
 
@@ -81,22 +85,27 @@ SELECT * FROM candidatures;
 
 **6.** Bonne nouvelle ! **Dassault Systèmes** vous a répondu et vous convoque à un entretien.
 
-Mettez à jour le statut de cette candidature :
-
-```sql
-UPDATE candidatures
-SET statut = 'entretien'
-WHERE id = 1;
-```
-
-Vérifiez la modification :
-
-```sql
-SELECT * FROM candidatures;
-```
+Mettez à jour le statut de cette candidature en `'entretien'`.
 
 <details>
-<summary>Vérification 🔑</summary>
+<summary>Indice 1 🔑</summary>
+<p>Vous devez <b>modifier</b> une donnée existante. Quelle commande SQL permet de faire ça ?</p>
+</details>
+
+<details>
+<summary>Indice 2 🔑</summary>
+<p>Utilisez <code>UPDATE</code> avec <code>SET</code> pour définir la nouvelle valeur et <code>WHERE</code> pour cibler la bonne ligne.</p>
+</details>
+
+<details>
+<summary>Indice 3 🔑</summary>
+<p>La structure est : <code>UPDATE nom_table SET colonne = 'valeur' WHERE condition;</code>. Quel est l'<code>id</code> de Dassault Systèmes ?</p>
+</details>
+
+Vérifiez la modification avec un `SELECT`.
+
+<details>
+<summary>Vérification ✅</summary>
 <p>La ligne avec <code>id = 1</code> (Dassault Systèmes) doit maintenant afficher le statut <code>'entretien'</code>. Les 4 autres sont toujours à <code>'envoyée'</code>.</p>
 </details>
 
@@ -108,27 +117,24 @@ Mettez à jour le statut de cette candidature en `'refusée'`.
 
 <details>
 <summary>Indice 🔑</summary>
-
-```sql
-UPDATE candidatures
-SET statut = 'refusée'
-WHERE id = 3;
-```
-
+<p>Même logique qu'à l'étape 6. Attention à bien cibler le bon <code>id</code> dans votre clause <code>WHERE</code>.</p>
 </details>
 
 ---
 
-**8.** Quand on n'a pas de réponse, il faut relancer ! Ajoutez une nouvelle colonne nommée `date_relance` de type `DATE`.
+**8.** Quand on n'a pas de réponse, il faut relancer ! Ajoutez une nouvelle colonne nommée `date_relance` de type `DATE` à la table `candidatures`.
 
-```sql
-ALTER TABLE candidatures
-ADD COLUMN date_relance DATE;
+<details>
+<summary>Indice 1 🔑</summary>
+<p>Vous devez <b>modifier la structure</b> de la table (pas ses données). Quelle commande permet de faire ça ?</p>
+</details>
 
-SELECT * FROM candidatures;
-```
+<details>
+<summary>Indice 2 🔑</summary>
+<p>La structure est : <code>ALTER TABLE nom_table ADD COLUMN nom_colonne TYPE;</code></p>
+</details>
 
-Que contient la colonne `date_relance` pour les candidatures existantes ?
+Affichez ensuite la table. Que contient la colonne `date_relance` pour les candidatures existantes ?
 
 <details>
 <summary>Réponse 🔑</summary>
@@ -137,31 +143,17 @@ Que contient la colonne `date_relance` pour les candidatures existantes ?
 
 ---
 
-**9.** Planifiez vos relances. Vous décidez de relancer les entreprises qui n'ont pas encore répondu :
+**9.** Planifiez vos relances. Vous décidez de relancer les trois entreprises qui n'ont pas encore répondu :
 
-- **Schneider Electric** : relance le `'2026-02-01'`
-- **Renault** : relance le `'2026-02-15'`
-- **Vinci Construction** : relance le `'2026-02-20'`
+- **Schneider Electric** (id 2) : relance le `'2026-02-01'`
+- **Renault** (id 4) : relance le `'2026-02-15'`
+- **Vinci Construction** (id 5) : relance le `'2026-02-20'`
 
 Mettez à jour la colonne `date_relance` pour chacune de ces candidatures.
 
 <details>
 <summary>Indice 🔑</summary>
-
-```sql
-UPDATE candidatures
-SET date_relance = '2026-02-01'
-WHERE id = 2;
-
-UPDATE candidatures
-SET date_relance = '2026-02-15'
-WHERE id = 4;
-
-UPDATE candidatures
-SET date_relance = '2026-02-20'
-WHERE id = 5;
-```
-
+<p>Vous devez écrire trois instructions <code>UPDATE</code>, une par entreprise. Pensez à utiliser <code>WHERE</code> pour cibler chaque ligne par son <code>id</code>.</p>
 </details>
 
 ---
@@ -192,48 +184,52 @@ Mettez à jour le statut de cette candidature en `'acceptée'`.
 
 <details>
 <summary>Indice 🔑</summary>
-
-```sql
-UPDATE candidatures
-SET statut = 'acceptée'
-WHERE id = 1;
-```
-
+<p>Même principe qu'aux étapes 6 et 7. Quelle colonne modifier, et sur quelle ligne ?</p>
 </details>
 
 ---
 
 **12.** Vous avez trouvé votre stage, félicitations ! Il est temps de faire le ménage.
 
-Commencez par supprimer la candidature qui a été **refusée** :
-
-```sql
-DELETE FROM candidatures
-WHERE statut = 'refusée';
-```
-
-Combien de lignes restent dans la table ?
+Commencez par supprimer la candidature qui a été **refusée**.
 
 <details>
-<summary>Réponse 🔑</summary>
+<summary>Indice 1 🔑</summary>
+<p>Vous devez <b>supprimer</b> une ligne. Quelle commande SQL permet de faire ça ?</p>
+</details>
+
+<details>
+<summary>Indice 2 🔑</summary>
+<p>La structure est : <code>DELETE FROM nom_table WHERE condition;</code>. Sur quelle colonne et quelle valeur devez-vous filtrer ?</p>
+</details>
+
+Combien de lignes restent dans la table après cette suppression ?
+
+<details>
+<summary>Vérification ✅</summary>
 <p><b>4 lignes</b> restent. Seule la candidature chez <b>Sopra Steria</b> (id 3, statut <code>'refusée'</code>) a été supprimée.</p>
 </details>
 
 ---
 
-**13.** Maintenant que votre stage est trouvé, les candidatures encore en attente ne sont plus utiles. Remarquez que ce sont aussi les seules qui ont une `date_relance` renseignée.
+**13.** Maintenant que votre stage est trouvé, les candidatures encore en attente ne sont plus utiles. Remarquez que ce sont aussi les seules à avoir une `date_relance` renseignée (les autres ont `NULL`).
 
-Supprimez toutes les candidatures dont la `date_relance` **n'est pas** `NULL` :
+Supprimez toutes les candidatures dont la `date_relance` **n'est pas** `NULL`.
 
-```sql
-DELETE FROM candidatures
-WHERE date_relance IS NOT NULL;
-```
+<details>
+<summary>Indice 1 🔑</summary>
+<p>Dans le cours, vous avez vu <code>IS NULL</code> pour tester si une valeur est manquante. Comment exprimer l'inverse ?</p>
+</details>
+
+<details>
+<summary>Indice 2 🔑</summary>
+<p>L'inverse de <code>IS NULL</code> est <code>IS NOT NULL</code>. Combinez-le avec <code>DELETE FROM ... WHERE ...</code>.</p>
+</details>
 
 Combien de lignes restent dans la table ?
 
 <details>
-<summary>Réponse 🔑</summary>
+<summary>Vérification ✅</summary>
 <p><b>1 seule ligne</b> reste : la candidature <b>acceptée</b> chez Dassault Systèmes (id 1), dont la <code>date_relance</code> est <code>NULL</code> (pas besoin de relancer quand on a décroché le stage !).</p>
 </details>
 
@@ -267,18 +263,20 @@ Ces étapes sont **optionnelles**, pour celles et ceux qui veulent approfondir.
 
 ---
 
-**16.** Insérez trois entretiens dans la table (réels ou fictifs). Par exemple :
+**16.** Insérez **trois entretiens** dans la table avec les données suivantes :
 
-```sql
-INSERT INTO entretiens (id, entreprise, date_entretien, type_entretien, ressenti)
-VALUES (1, 'Dassault Systèmes', '2026-01-25', 'présentiel', 'confiant');
+| id | entreprise          | date_entretien | type_entretien | ressenti |
+|----|---------------------|----------------|----------------|----------|
+| 1  | Dassault Systèmes   | 2026-01-25     | présentiel     | confiant |
+| 2  | Schneider Electric  | 2026-02-10     | visio          | moyen    |
+| 3  | Renault             | 2026-02-20     | téléphone      | *(vide)* |
 
-INSERT INTO entretiens (id, entreprise, date_entretien, type_entretien, ressenti)
-VALUES (2, 'Schneider Electric', '2026-02-10', 'visio', 'moyen');
+> 💡 Pour le troisième entretien, le ressenti n'est pas encore renseigné. Comment représenter une donnée manquante en SQL ?
 
-INSERT INTO entretiens (id, entreprise, date_entretien, type_entretien, ressenti)
-VALUES (3, 'Renault', '2026-02-20', 'téléphone', NULL);
-```
+<details>
+<summary>Indice 🔑</summary>
+<p>Une donnée manquante se représente par <code>NULL</code> (sans guillemets). Par exemple : <code>VALUES (3, 'Renault', '2026-02-20', 'téléphone', NULL);</code></p>
+</details>
 
 ---
 
@@ -286,29 +284,19 @@ VALUES (3, 'Renault', '2026-02-20', 'téléphone', NULL);
 
 <details>
 <summary>Indice 🔑</summary>
-
-```sql
-UPDATE entretiens
-SET ressenti = 'difficile'
-WHERE id = 3;
-```
-
+<p>Même mécanique qu'aux étapes 6, 7 et 11. Quelle colonne modifier, et comment cibler la bonne ligne ?</p>
 </details>
 
 ---
 
 **18.** Supprimez les entretiens pour lesquels le ressenti est `NULL` (ceux que vous n'avez pas encore évalués).
 
-```sql
-DELETE FROM entretiens
-WHERE ressenti IS NULL;
-```
-
-Combien d'entretiens restent ?
+Écrivez l'instruction, exécutez-la, puis observez le résultat. Combien d'entretiens restent ? Le résultat vous surprend-il ?
 
 <details>
 <summary>Réponse 🔑</summary>
-<p><b>3 entretiens</b> restent, aucun n'a été supprimé ! En effet, à l'étape 17 vous avez mis à jour le ressenti de Renault en <code>'difficile'</code>, donc il n'est plus <code>NULL</code>. Aucune ligne ne correspond au critère <code>WHERE ressenti IS NULL</code>.</p>
+<p><b>3 entretiens</b> restent, aucun n'a été supprimé ! En effet, à l'étape 17 vous avez mis à jour le ressenti de Renault en <code>'difficile'</code>, donc il n'est plus <code>NULL</code>. Aucune ligne ne correspond au critère <code>IS NULL</code>.</p>
+<p>C'est un bon rappel : <b>l'ordre des opérations compte</b>. Si vous aviez exécuté le <code>DELETE</code> avant le <code>UPDATE</code>, l'entretien chez Renault aurait été supprimé.</p>
 </details>
 
 ---
