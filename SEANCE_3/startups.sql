@@ -1,68 +1,48 @@
 CREATE TABLE startups (
+   id INTEGER,
    nom TEXT,
-   localisation TEXT,
-   categorie TEXT,
+   pays TEXT,
+   secteur TEXT,
+   annee_creation INTEGER,
    nb_employes INTEGER,
-   montant_levee_de_fond BIGINT,
-   valorisation BIGINT,
-   date_creation BIGINT,
-   stade_entreprise TEXT,
-   ceo TEXT,
-   infos TEXT
+   levee_fonds_millions REAL,
+   valorisation_millions REAL,
+   stade TEXT,
+   fondateur TEXT
 );
 
-INSERT INTO startups (nom, localisation, categorie, nb_employes, montant_levee_de_fond, valorisation, date_creation, stade_entreprise, ceo, infos) VALUES
-('Pied Piper', 'Silicon Valley', 'Cloud Computing',   6,  5000000,  50000000, 2014,  'A',  'Richard Hendricks', 'Solution de compression gaz'),
-('Hooli', 'Silicon Valley', 'Entreprise', 9000, 580000000, 49500000000 ,1997, NULL, 'Gavin Bensen', 'Hooli est une affaire de personnes'),
-('Raviga Capital', 'Silicon Valley', 'Venture Capital', 12, 3000000000, NULL ,2012,NULL , 'Peter Gregory', 'Share Only In Success'),
-('Aviato', 'Silicon Valley', 'Voyage', 3, 250000, 2500000, 2006, 'A', 'Erlich Bachman', 'Software Aggregation Program'),
-('SEE FOOD', 'Silicon Valley', 'Mobile', 2, NULL , 15000000, 2016, 'A', 'Jian-Yang',  'The Shazam of Food'),
-('Forbid',  'New York', 'Mobile', 25, 1400000,  5000000,  2013, 'A', 'Charlie Dattolo',   'Charge Users $10 for Calling Their Ex'),
-('Soulstice', 'New York', 'Fitness',  300,   30000000, 120000000,   2014,  'B',NULL, 'What are your goals today?'),
-('E-Corp', 'New York', 'Entreprise',  10000,    66000000000,NULL, 2006, NULL , 'Phillip Price',  'Together We Can Change the World'),
-('Allsafe Cybersecurity', 'New York', 'Securité', 250,   123000000,  1000000000,  2014,NULL, 'Gideon Goddard',NULL),
-('fsociety', 'Brooklyn', 'Jeux', 5,NULL,NULL,  2015,  'S',  'Elliot Alderson',  'Fun Society Arcade'),
-('Summit Ice',  'Los Angeles', 'Mode',  2,  50000, 800000,   2015,  'Jeune pousse', 'Nathan Fielder', 'Raising Awareness of the Holocaust'),
-('The Movement',   'Los Angeles', 'Fitness',  3,  15000,NULL,  2015 , 'Jeune pousse',  'Nathan Fielder', 'No Gym. No Weights. Just Results.'),
-('WUPHF!',  'Scranton', 'Social',   6,  25000, 10000, 2010,  'Jeune pousse',  'Ryan Howard', 'Cross-Portal Messaging System'),
-('Fakeblock',   'Irvine',   'Mobile',   2,  3,NULL,  2013,  'Jeune pousse',  'George Michael', 'OCs Most Popular Digital Wood Instrument'),
-('Magic Heap',  'Fort Lauderdale', 'Réalité Augmenté', 500,   1800000000,  8000000000,  2013,  'D',  'Johnny Malkovich',  '¯\_(ツ)_/¯'),
-('HoloGrail',   'San Francisco',  'Technologie',  30, 51000000, 1800000000,  2016,  'B',  'Daniel Li',   'Volumetric Display'),
-('Voice2Txt',   'San Francisco',  'Mobile',   16, 1800000,  15000000, 2012,  'Jeune pousse',  'Cole Romano', 'Transcribes Voicemails to Texts'),
-('V-Arrr',  'San Francisco',  'Réalité Augmenté',   6,  750000,   2500000,  2015,  'Jeune pousse',  'Cole Romano', 'Pirate-Themed VR App'),
-('REBU',  'San Francisco',  'Logistique',   15000, 11500000000, 70000000, 2009,  'G',  'Kravis Talanick',   'Ridesharing Platform'),
-('Rave New World', 'San Francisco',  'Social',   8,  250000,   6000000,  2014,NULL, 'Sam Guss', 'Social Media for the EDM Community'),
-('WaterCnC', 'San Francisco',  'Voyage',   4000,  4400000000,  25000000000, 2008,  'F',  'Crian Besky', 'Water Sharing Platform for Cooks and Chefs'),
-('RankerBot',  'San Francisco',  'Algorithmes',  5,  1500000 , 7600000 , 2013,  'A', 'Delaney Charlie',  'Water Sharing Platform for Cooks and Chefs'),
-('Xandesk',  'San Francisco',  'Service client', 100,   75500000, 640000000,   2012,  'IPO',   'Ronald Paris',   'Keep Frowning'),
-('Everyotherday.me',  'San Francisco', 'Mobile',   35,NULL , NULL , 2012,  'Jeune pousse',  'Jeremy Lin',  'Journal that Captures the Special Moments'),
-('Frontsby', 'San Francisco',NULL,NULL,NULL,NULL, 2013,  'Jeune pousse',  'Olivia Plath',NULL),  
-('2Smart2Host', 'Brooklyn', 'Big Data', 4,  380000, NULL  ,   2014, 'A', 'Evan Nails', 'Dynamic Pricing for Vacation Rentals'),
-('StarsNGripes',  'Boulder',  'Social',   3,  2000000,  560000000,   2015,  'A',  'Gregory Hilt',   'Yelp for US Landmarks and Tourist Attractions'),
-('SoCorny',  'Omaha', 'Technologie', 65, 25000000, 2000000000,  2013,  'B',  'Elon Husk',   'Analytics Platform for Corn Production'),
-('VeVork',  'New York', 'Immobilier', 200,  750000000,   20000000000, 2010,  'G' , 'Mada Nammneu',  'Co-relaxing Space for Vampires'),
-('Brrr',  'New York', 'Pari', 10, 5000000,  322000000,   2012,  'A',  'Yan Solo',  'eSports Betting'),
-('BackPax',  'New York', 'Education' ,  2,  80000, 14000000, 2017,  'Jeune pousse',  'Jose Ferreira',  'MOOCs are Boo Hoo'),
-('CapitalPunishment', 'New York', 'Mobile',   15, 500000,   10000000, 2008,  'A', 'Cole Romano', 'Stock Market Brawler Game'),
-('Son of a Fletch',   'New York', 'Social',   4,  300000 ,  3000000,  2014 , 'Jeune pousse',  'CC Vaught',   'Social Media App for Archery Enthusiasts'),
-('Yas Queen',   'New York', 'Santé', 300,   45000000, 980000000,   2015,  'A',  'Jamie Brieman',  'Accelerating Breast Cancer Research'),
-('Geocities-Lite', 'New York', 'Social',   20, 1000000,  50000000, 2012,  'A',  'Jim Jason',   'Mobile Friendly Geocities'),
-('Cluster.ly',  'New York',  'Big Data',   10, 750000,   15000000, 2015,  'B',  'Hillary Limegreen',NULL), 
-('Codefellas',  'New York', 'Education',   50, 50000000, 10000000000, 2012,  'A',  'Zane Sims',   'The Not So Easy Way to Learn to Code'),
-('kryptoPark',  'Palo Alto', 'Securité', 70, 75000000, 10000000000, 2011,  'B',  'Joe Wang', 'Password Mgmt for Password Mgmt Services'),
-('zZz',   'Palo Alto',   'SaaS',  20, 50000000, 800000000,   2008,  'C',  'Henry Campbell', 'Dream Tracking/Recording'),
-('Pita Pan', 'Palo Alto', 'Technologie',  40, 30000000, 5500000000,  2015,  'B',  'Schuylar Croom', 'Drone Food Delivery Service'),
-('nova.ai',  'Palo Alto',  'Entreprise',  340,   3000000,  25000000, 2013,  'A',  'Nick Kinsella',NULL),  
-('XNA',   'Palo Alto',   'Santé', 250,   540000000,   760000000000,   2012,  'C',  'Owen Pilsner',   'Genome Database'),
-('Cloud Nine',  'Palo Alto',   'Cloud Computing',   35, 36000000, 140000000,   2013,  'A',  'Jase Farmer',NULL ),
-('Scramptons',  'Long Island', 'Securité', 5,  200000,   8000000000,  2017,  'Jeune pousse',  'Henri Bernard',  'Home Security'),
-('Carcheesian Plane Paris', 'Education',   30, 3000000,NULL,50000000, 2012,  'A',  'Jim Mussen',  'A Gouda Place to Learn Math'),
-('Dungees and Dragos',   'Atlanta',  'Jeux', 3,  300000,   1600000,  2014,  'Jeune pousse',  'Stuart Stickler',   'Tabletop Gaming for the Insufferable'),
-('VaporWear',   'Virginia Beach', 'Social',   15, 450000 ,  14000000, 2017,  'Jeune pousse',  'TJ Harris',   'Social Network for Vaping Enthusiasts'),
-('RICE Media',  'Brooklyn', 'Video Streaming',NULL ,NULL,3000,  730000000,      1994,     'Shayna Craftsman',  '2cool4school'),
-('Townie666',   'Brooklyn',    2,NULL,20000, 80000, 2017,  'Jeune pousse',  'Sonny Li', '*_*'),
-('Kimberly', 'Brooklyn',    2,  100000,  NULL ,8500000,  2018,  'Jeune pousse',  'Jillian Kuzmin', 'Synthetic Diamonds'),
-('Wakeful',  'Brooklyn', 'Réalité Augmenté',  3,  30000, 1800000,  2016,  'Jeune pousse',  'Maria Epstein',  'Meditation VR App'),
-('MLGB',  'Columbus', 'E-commerce',  2,  50000, 500000,   2012,  'Jeune pousse',  'Xin Xin',  'Authentic Streetwear or DDoS'),
-('PostGurt', 'Savannah', 'Social',   6,  550000,   200000000,   2013,  'Jeune pousse',  'Lauretta Brieman',  'Subscription Based Yogurt in the Mail'),
-('Virtual Tour',   'Chicago',  'E-commerce',  12, 750000,   120000000,   2014 , 'Jeune pousse',  'Ari LBoy',   'Real Estate for Fake People');
+INSERT INTO startups VALUES (1, 'Spotify', 'Suède', 'Musique', 2006, 8000, 2700, 67000, 'IPO', 'Daniel Ek');
+INSERT INTO startups VALUES (2, 'Airbnb', 'États-Unis', 'Voyage', 2008, 6900, 6400, 78000, 'IPO', 'Brian Chesky');
+INSERT INTO startups VALUES (3, 'Stripe', 'États-Unis', 'Fintech', 2010, 8000, 8700, 50000, 'Série I', 'Patrick Collison');
+INSERT INTO startups VALUES (4, 'Revolut', 'Royaume-Uni', 'Fintech', 2015, 8000, 1700, 33000, 'Série E', 'Nikolay Storonsky');
+INSERT INTO startups VALUES (5, 'BlaBlaCar', 'France', 'Voyage', 2006, 700, 600, 2000, 'Série D', 'Frédéric Mazzella');
+INSERT INTO startups VALUES (6, 'Doctolib', 'France', 'Santé', 2013, 2800, 900, 5600, 'Série F', 'Stanislas Niox-Château');
+INSERT INTO startups VALUES (7, 'Datadog', 'États-Unis', 'Cloud', 2010, 5200, 650, 35000, 'IPO', 'Olivier Pomel');
+INSERT INTO startups VALUES (8, 'Klarna', 'Suède', 'Fintech', 2005, 5000, 4600, 14600, 'Série E', 'Sebastian Siemiatkowski');
+INSERT INTO startups VALUES (9, 'Canva', 'Australie', 'Design', 2012, 4000, 570, 26000, 'Série F', 'Melanie Perkins');
+INSERT INTO startups VALUES (10, 'Discord', 'États-Unis', 'Social', 2015, 600, 1000, 15000, 'Série H', 'Jason Citron');
+INSERT INTO startups VALUES (11, 'Figma', 'États-Unis', 'Design', 2012, 1400, 330, 12500, 'Série E', 'Dylan Field');
+INSERT INTO startups VALUES (12, 'Notion', 'États-Unis', 'Productivité', 2013, 500, 340, 10000, 'Série C', 'Ivan Zhao');
+INSERT INTO startups VALUES (13, 'Mistral AI', 'France', 'IA', 2023, 60, 1100, 6000, 'Série B', 'Arthur Mensch');
+INSERT INTO startups VALUES (14, 'OpenAI', 'États-Unis', 'IA', 2015, 2500, 11300, 157000, 'Série F', 'Sam Altman');
+INSERT INTO startups VALUES (15, 'Uber', 'États-Unis', 'Logistique', 2009, 32800, 25500, 150000, 'IPO', 'Travis Kalanick');
+INSERT INTO startups VALUES (16, 'Deliveroo', 'Royaume-Uni', 'Logistique', 2013, 3500, 1800, 4500, 'IPO', 'Will Shu');
+INSERT INTO startups VALUES (17, 'Back Market', 'France', 'E-commerce', 2014, 650, 900, 5100, 'Série E', 'Thibaud Hug de Larauze');
+INSERT INTO startups VALUES (18, 'N26', 'Allemagne', 'Fintech', 2013, 1500, 1800, 9000, 'Série E', 'Valentin Stalf');
+INSERT INTO startups VALUES (19, 'Bolt', 'Estonie', 'Logistique', 2013, 5000, 2300, 8400, 'Série F', 'Markus Villig');
+INSERT INTO startups VALUES (20, 'Wise', 'Royaume-Uni', 'Fintech', 2011, 5800, 400, 11000, 'IPO', 'Kristo Käärmann');
+INSERT INTO startups VALUES (21, 'Deezer', 'France', 'Musique', 2007, 600, 400, 1000, 'IPO', 'Daniel Marhely');
+INSERT INTO startups VALUES (22, 'Alan', 'France', 'Santé', 2016, 550, 500, 4000, 'Série E', 'Jean-Charles Samuelian');
+INSERT INTO startups VALUES (23, 'Lydia', 'France', 'Fintech', 2013, 300, 230, NULL, 'Série C', 'Cyril Chiche');
+INSERT INTO startups VALUES (24, 'Vinted', 'Lituanie', 'E-commerce', 2008, 2000, 580, 4500, 'Série F', 'Milda Mitkute');
+INSERT INTO startups VALUES (25, 'Sorare', 'France', 'Jeux / NFT', 2018, 200, 740, 4300, 'Série B', 'Nicolas Julia');
+INSERT INTO startups VALUES (26, 'Swile', 'France', 'RH / Avantages', 2017, 500, 260, 1100, 'Série C', 'Loïc Soubeyrand');
+INSERT INTO startups VALUES (27, 'Qonto', 'France', 'Fintech', 2016, 1400, 600, 5000, 'Série D', 'Alexandre Prot');
+INSERT INTO startups VALUES (28, 'Anthropic', 'États-Unis', 'IA', 2021, 1000, 7600, 60000, 'Série D', 'Dario Amodei');
+INSERT INTO startups VALUES (29, 'Hugging Face', 'France', 'IA', 2016, 200, 400, 4500, 'Série D', 'Clément Delangue');
+INSERT INTO startups VALUES (30, 'Epic Games', 'États-Unis', 'Jeux / NFT', 1991, 4500, 6400, 31500, 'Série F', 'Tim Sweeney');
+INSERT INTO startups VALUES (31, 'Databricks', 'États-Unis', 'Cloud', 2013, 7000, 4200, 43000, 'Série I', 'Ali Ghodsi');
+INSERT INTO startups VALUES (32, 'Wiz', 'Israël', 'Cybersécurité', 2020, 1200, 1900, 12000, 'Série E', NULL);
+INSERT INTO startups VALUES (33, 'Ledger', 'France', 'Crypto', 2014, 700, NULL, 1500, 'Série C', 'Éric Larchevêque');
+INSERT INTO startups VALUES (34, 'Contentsquare', 'France', 'Analytics', 2012, 1800, 1400, NULL, 'Série F', 'Jonathan Cherki');
+INSERT INTO startups VALUES (35, 'OVHcloud', 'France', 'Cloud', 1999, 3000, 800, 3500, 'IPO', 'Octave Klaba');
