@@ -1,56 +1,159 @@
-# Tendances dans la Silicone Valley
+# 🚀 Projet — Panorama de la Tech : analysez les startups
 
-Pour vous permettre de commencer vos recherches, votre patron vous a envoyé par e-mail un fichier `startup.sql` qui contient une table appelée `startups. Il s'agit d'un portefeuille de quelques-uns des plus grands noms du secteur.
+Votre manager dans un fonds d'investissement vous envoie un fichier `startups.sql` contenant un portefeuille de **35 startups** parmi les plus connues de la tech mondiale. La table contient des informations sur :
 
-Rédigez des requêtes avec des fonctions d'agrégation pour récupérer des informations intéressantes sur ces entreprises.
+- **Le nom** de la startup
+- **Le pays** du siège social
+- **Le secteur** d'activité (Fintech, IA, Cloud, Logistique…)
+- **L'année de création**
+- **Le nombre d'employés**
+- **Le montant levé** en millions d'euros (`levee_fonds_millions`) — parfois non divulgué
+- **La valorisation** en millions d'euros (`valorisation_millions`) — parfois inconnue
+- **Le stade** de développement (Série B, C, D… ou IPO)
+- **Le fondateur** — parfois non renseigné
 
-### Aperçu Général des Startups
+> ⚠️ Comme dans la vraie vie, certaines données sont **manquantes** (`NULL`). Gardez cela en tête dans vos requêtes.
 
-1. Quelles sont toutes les données disponibles dans la table `startups` ?
+Utilisez les fonctions d'agrégation SQL pour explorer ce portefeuille et en tirer des analyses utiles.
 
-### Valorisation et Financement
+---
 
-2. Quelle est la somme totale des valorisations pour toutes les startups ?
-3. Quel est le montant maximal de fonds levés par une startup ?
-4. Quel est le montant maximal levé par une startup en phase 'Jeune Pousse' ?
+### À vous de jouer !
 
-### Historique et Ancienneté
+**0.** Importez les requêtes du fichier `startups.sql` dans votre éditeur PostgreSQL.
 
-5. En quelle année a été fondée la startup la plus ancienne ?
+---
 
-### Analyse Sectorielle
+### Aperçu général
 
-6. Quelle est la valorisation moyenne de toutes les startups ?
-7. Quelle est la valorisation moyenne par catégorie de startups ?
-8. Quelle est la valorisation moyenne par catégorie de startups, arrondie à deux décimales ?
-9. Classez les catégories de startups par leur valorisation moyenne, de la plus élevée à la plus basse.
+**1.** Familiarisez-vous avec la table :
 
-### Concurrence et Diversité
+```sql
+SELECT * FROM startups;
+```
 
-10. Combien de startups y a-t-il dans chaque catégorie ?
-11. Quelles catégories ont plus de trois startups ?
+Quels sont les noms des colonnes ? Combien de startups contient la table ?
 
-### Taille et Localisation
+---
 
-12. Quelle est la taille moyenne des startups par localisation ?
-13. Dans quelles localisations trouve-t-on des startups ayant une taille moyenne supérieure à 500 employés ?
+**2.** Certaines startups ont des données **manquantes**. Combien de startups ont une **valorisation connue** ? Comparez avec le nombre total de startups.
 
-### Développement et Croissance
+> 💡 Quelle différence entre `COUNT(*)` et `COUNT(valorisation_millions)` ?
 
-14. Combien y a-t-il de startups à chaque stade de développement (par exemple, idée, démarrage, croissance) ?
+---
 
-### Tendances Récents et Valorisation
+**3.** Quelles startups n'ont **pas de valorisation connue** ? Affichez leur `nom` et leur `secteur`.
 
-15. Quelles startups, fondées après 2010, ont les valorisations les plus élevées, et comment se répartissent-elles au fil du temps ?
+---
 
-### Secteurs et Investissements
+### Valorisation et financement
 
-16. Dans quel secteur les startups ont-elles levé en moyenne le plus de fonds, et quelles sont les moyennes de fonds levés par secteur ?
+**4.** Quelle est la **somme totale** des valorisations pour l'ensemble du portefeuille ?
 
-### Analyse des Ressources Humaines
+> 💡 Les fonctions d'agrégation comme `SUM()` ignorent automatiquement les `NULL`.
 
-17. Parmi les startups ayant plus de 100 employés, lesquelles ont levé le plus de fonds, et comment se comparent-elles en termes de taille et de financement ?
+---
 
-### Distribution Géographique
+**5.** Quelle startup a levé le **plus de fonds** ? Quel est ce montant ?
 
-18. Quelle est la répartition des startups par localisation et phase de développement, et où trouve-t-on la plus grande diversité de stades de développement ?
+---
+
+**6.** Parmi les startups au stade `'Série B'`, quel est le **montant maximum** levé ?
+
+---
+
+**7.** En quelle année a été fondée la **plus ancienne** startup du portefeuille ?
+
+---
+
+### Analyse des valorisations
+
+**8.** Quelle est la **valorisation moyenne** de toutes les startups ?
+
+---
+
+**9.** Le résultat est difficile à lire. Affichez la valorisation moyenne **arrondie à 2 décimales**.
+
+---
+
+**10.** Quelle est la valorisation moyenne **par secteur** ? Triez le résultat de la valorisation la **plus élevée à la plus basse**.
+
+> 💡 Que se passe-t-il pour les secteurs où aucune startup n'a de valorisation connue ?
+
+---
+
+### Concurrence et diversité sectorielle
+
+**11.** Combien de startups y a-t-il **dans chaque secteur** ? Triez du secteur le plus représenté au moins représenté.
+
+---
+
+**12.** Quels secteurs comptent **plus de 3 startups** ?
+
+---
+
+### Taille et localisation
+
+**13.** Quelle est la **taille moyenne** (nombre d'employés) des startups **par pays** ? Triez du plus grand au plus petit.
+
+---
+
+**14.** Dans quels pays les startups ont-elles une taille moyenne **supérieure à 2 000 employés** ?
+
+> 💡 `WHERE` filtre les lignes. Pour filtrer les groupes, quelle clause utiliser ?
+
+---
+
+### Stades de développement
+
+**15.** Combien de startups y a-t-il **à chaque stade** de développement ? Triez du stade le plus fréquent au moins fréquent.
+
+---
+
+### Tendances récentes
+
+**16.** Parmi les startups fondées **à partir de 2015**, affichez pour **chaque année de création** :
+- Le nombre de startups
+- La valorisation moyenne (arrondie à 0 décimale)
+- Le total des levées de fonds
+
+Triez par année croissante.
+
+> 💡 Combinez `WHERE`, `GROUP BY` et `ORDER BY`. Dans quel ordre se placent-ils ?
+
+---
+
+### Secteurs et investissements
+
+**17.** Dans quel secteur les startups ont-elles levé **en moyenne le plus de fonds** ?
+
+Affichez le secteur, le nombre de startups et la moyenne des levées de fonds (arrondie), triés par moyenne décroissante.
+
+> 💡 Que se passe-t-il pour les secteurs où une startup n'a pas divulgué sa levée de fonds ?
+
+---
+
+### Focus France 🇫🇷
+
+**18.** Combien de startups **françaises** y a-t-il dans le portefeuille ?
+
+---
+
+**19.** Quel est le **total des fonds levés** par les startups françaises ?
+
+> 💡 Attention : si une levée est `NULL`, elle n'est pas comptée dans la somme.
+
+---
+
+**20.** Quelle est la **valorisation moyenne par secteur** pour les startups **françaises uniquement** ? Triez par valorisation décroissante.
+
+---
+
+### Boss Final 👾
+
+**21.** Écrivez **une seule requête** qui répond à la question suivante :
+
+> *Parmi les startups françaises uniquement, quels secteurs comptent au moins 2 startups et ont une levée de fonds moyenne supérieure à 500 millions ? Affichez le secteur, le nombre de startups, la valorisation moyenne, la levée de fonds moyenne et le nombre moyen d'employés (le tout arrondi à 0 décimale). Triez par valorisation moyenne décroissante.*
+
+> 💡 Il y a un filtre sur les **lignes** (`WHERE`) ET un filtre sur les **groupes** (`HAVING` avec deux conditions). Pensez à l'ordre des clauses.
+
