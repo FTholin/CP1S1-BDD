@@ -1,0 +1,105 @@
+CREATE TABLE transactions (
+   id INTEGER,
+   prenom TEXT,
+   date_transaction DATE,
+   categorie TEXT,
+   entree REAL,
+   sortie REAL,
+   motif TEXT
+);
+
+INSERT INTO transactions VALUES (1, 'Hugo', '2026-01-05', 'Resto', NULL, 32.50, 'Pizza du lundi soir (3 pers.)');
+INSERT INTO transactions VALUES (2, 'Léa', '2026-01-05', 'Resto', 10.83, NULL, 'Remb. pizza Hugo');
+INSERT INTO transactions VALUES (3, 'Lucas', '2026-01-05', 'Resto', 10.83, NULL, 'Remb. pizza Hugo');
+INSERT INTO transactions VALUES (4, 'Inès', '2026-01-06', 'Courses', NULL, 45.80, 'Courses coloc (3 pers.)');
+INSERT INTO transactions VALUES (5, 'Théo', '2026-01-06', 'Courses', 15.27, NULL, 'Remb. courses Inès');
+INSERT INTO transactions VALUES (6, 'Jade', '2026-01-06', 'Courses', 15.27, NULL, 'Remb. courses Inès');
+INSERT INTO transactions VALUES (7, 'Emma', '2026-01-07', 'Soirée', NULL, 85.00, 'Alcool + snacks soirée (8 pers.)');
+INSERT INTO transactions VALUES (8, 'Hugo', '2026-01-07', 'Soirée', 10.63, NULL, 'Remb. soirée Emma');
+INSERT INTO transactions VALUES (9, 'Léa', '2026-01-07', 'Soirée', 10.63, NULL, 'Remb. soirée Emma');
+INSERT INTO transactions VALUES (10, 'Nathan', '2026-01-07', 'Soirée', 10.63, NULL, 'Remb. soirée Emma');
+INSERT INTO transactions VALUES (11, 'Chloé', '2026-01-07', 'Soirée', 10.63, NULL, 'Remb. soirée Emma');
+INSERT INTO transactions VALUES (12, 'Adam', '2026-01-07', 'Soirée', 10.63, NULL, 'Remb. soirée Emma');
+INSERT INTO transactions VALUES (13, 'Lucas', '2026-01-07', 'Soirée', 10.63, NULL, 'Remb. soirée Emma');
+INSERT INTO transactions VALUES (14, 'Inès', '2026-01-07', 'Soirée', 10.63, NULL, 'Remb. soirée Emma');
+INSERT INTO transactions VALUES (15, 'Nathan', '2026-01-08', 'Uber', NULL, 18.60, 'Uber retour soirée (2 pers.)');
+INSERT INTO transactions VALUES (16, 'Chloé', '2026-01-08', 'Uber', 9.30, NULL, 'Remb. Uber Nathan');
+INSERT INTO transactions VALUES (17, 'Théo', '2026-01-10', 'Ciné', NULL, 42.00, 'Places ciné x3');
+INSERT INTO transactions VALUES (18, 'Jade', '2026-01-10', 'Ciné', 14.00, NULL, 'Remb. ciné Théo');
+INSERT INTO transactions VALUES (19, 'Hugo', '2026-01-10', 'Ciné', 14.00, NULL, 'Remb. ciné Théo');
+INSERT INTO transactions VALUES (20, 'Adam', '2026-01-11', 'Kebab', NULL, 24.00, 'Kebabs x3');
+INSERT INTO transactions VALUES (21, 'Lucas', '2026-01-11', 'Kebab', 8.00, NULL, 'Remb. kebab Adam');
+INSERT INTO transactions VALUES (22, 'Nathan', '2026-01-11', 'Kebab', 8.00, NULL, 'Remb. kebab Adam');
+INSERT INTO transactions VALUES (23, 'Léa', '2026-01-12', 'Cadeau', NULL, 50.00, 'Cadeau anniv Jade');
+INSERT INTO transactions VALUES (24, 'Hugo', '2026-01-12', 'Cadeau', NULL, 50.00, 'Cadeau anniv Jade');
+INSERT INTO transactions VALUES (25, 'Emma', '2026-01-12', 'Cadeau', NULL, 50.00, 'Cadeau anniv Jade');
+INSERT INTO transactions VALUES (26, 'Inès', '2026-01-12', 'Cadeau', NULL, 50.00, 'Cadeau anniv Jade');
+INSERT INTO transactions VALUES (27, 'Jade', '2026-01-13', 'Resto', NULL, 156.00, 'Resto anniv Jade (elle invite)');
+INSERT INTO transactions VALUES (28, 'Lucas', '2026-01-14', 'Loyer', NULL, 450.00, 'Loyer janvier');
+INSERT INTO transactions VALUES (29, 'Inès', '2026-01-14', 'Loyer', NULL, 420.00, 'Loyer janvier');
+INSERT INTO transactions VALUES (30, 'Théo', '2026-01-14', 'Loyer', NULL, 420.00, 'Loyer janvier');
+INSERT INTO transactions VALUES (31, 'Hugo', '2026-01-15', 'McDo', NULL, 28.40, 'McDo midi (3 pers.)');
+INSERT INTO transactions VALUES (32, 'Léa', '2026-01-15', 'McDo', 9.47, NULL, 'Remb. McDo Hugo');
+INSERT INTO transactions VALUES (33, 'Adam', '2026-01-15', 'McDo', 9.47, NULL, 'Remb. McDo Hugo');
+INSERT INTO transactions VALUES (34, 'Chloé', '2026-01-16', 'Courses', NULL, 62.30, 'Courses gros Leclerc (3 pers.)');
+INSERT INTO transactions VALUES (35, 'Emma', '2026-01-16', 'Courses', 20.77, NULL, 'Remb. courses Chloé');
+INSERT INTO transactions VALUES (36, 'Nathan', '2026-01-16', 'Courses', 20.77, NULL, 'Remb. courses Chloé');
+INSERT INTO transactions VALUES (37, 'Théo', '2026-01-17', 'Bowling', NULL, 56.00, 'Bowling x4');
+INSERT INTO transactions VALUES (38, 'Jade', '2026-01-17', 'Bowling', 14.00, NULL, 'Remb. bowling Théo');
+INSERT INTO transactions VALUES (39, 'Adam', '2026-01-17', 'Bowling', 14.00, NULL, 'Remb. bowling Théo');
+INSERT INTO transactions VALUES (40, 'Chloé', '2026-01-17', 'Bowling', 14.00, NULL, 'Remb. bowling Théo');
+INSERT INTO transactions VALUES (41, 'Hugo', '2026-01-18', 'Uber', NULL, 22.40, 'Uber aéroport (2 pers.)');
+INSERT INTO transactions VALUES (42, 'Léa', '2026-01-18', 'Uber', 11.20, NULL, 'Remb. Uber Hugo');
+INSERT INTO transactions VALUES (43, 'Emma', '2026-01-19', 'Soirée', NULL, 120.00, 'Location salle + déco (8 pers.)');
+INSERT INTO transactions VALUES (44, 'Hugo', '2026-01-19', 'Soirée', 15.00, NULL, 'Remb. soirée Emma');
+INSERT INTO transactions VALUES (45, 'Léa', '2026-01-19', 'Soirée', 15.00, NULL, 'Remb. soirée Emma');
+INSERT INTO transactions VALUES (46, 'Lucas', '2026-01-19', 'Soirée', 15.00, NULL, 'Remb. soirée Emma');
+INSERT INTO transactions VALUES (47, 'Inès', '2026-01-19', 'Soirée', 15.00, NULL, 'Remb. soirée Emma');
+INSERT INTO transactions VALUES (48, 'Théo', '2026-01-19', 'Soirée', 15.00, NULL, 'Remb. soirée Emma');
+INSERT INTO transactions VALUES (49, 'Nathan', '2026-01-19', 'Soirée', 15.00, NULL, 'Remb. soirée Emma');
+INSERT INTO transactions VALUES (50, 'Adam', '2026-01-19', 'Soirée', 15.00, NULL, 'Remb. soirée Emma');
+INSERT INTO transactions VALUES (51, 'Jade', '2026-01-20', 'Resto', NULL, 78.00, 'Brunch dimanche (3 pers.)');
+INSERT INTO transactions VALUES (52, 'Chloé', '2026-01-20', 'Resto', 26.00, NULL, 'Remb. brunch Jade');
+INSERT INTO transactions VALUES (53, 'Léa', '2026-01-20', 'Resto', 26.00, NULL, 'Remb. brunch Jade');
+INSERT INTO transactions VALUES (54, 'Lucas', '2026-01-21', 'Courses', NULL, 38.50, 'Courses apéro (2 pers.)');
+INSERT INTO transactions VALUES (55, 'Théo', '2026-01-21', 'Courses', 19.25, NULL, 'Remb. courses Lucas');
+INSERT INTO transactions VALUES (56, 'Nathan', '2026-01-22', 'Ciné', NULL, 28.00, 'Places ciné x2');
+INSERT INTO transactions VALUES (57, 'Adam', '2026-01-22', 'Ciné', 14.00, NULL, 'Remb. ciné Nathan');
+INSERT INTO transactions VALUES (58, 'Inès', '2026-01-23', 'Resto', NULL, 95.00, 'Restau japonais (4 pers.)');
+INSERT INTO transactions VALUES (59, 'Emma', '2026-01-23', 'Resto', 23.75, NULL, 'Remb. restau Inès');
+INSERT INTO transactions VALUES (60, 'Chloé', '2026-01-23', 'Resto', 23.75, NULL, 'Remb. restau Inès');
+INSERT INTO transactions VALUES (61, 'Jade', '2026-01-23', 'Resto', 23.75, NULL, 'Remb. restau Inès');
+INSERT INTO transactions VALUES (62, 'Hugo', '2026-01-24', 'Uber', NULL, 15.80, 'Uber gare Part-Dieu (2 pers.)');
+INSERT INTO transactions VALUES (63, 'Théo', '2026-01-24', 'Uber', 7.90, NULL, 'Remb. Uber Hugo');
+INSERT INTO transactions VALUES (64, 'Adam', '2026-01-25', 'Soirée', NULL, 65.00, 'Fûts de bière soirée (6 pers.)');
+INSERT INTO transactions VALUES (65, 'Hugo', '2026-01-25', 'Soirée', 10.83, NULL, 'Remb. soirée Adam');
+INSERT INTO transactions VALUES (66, 'Léa', '2026-01-25', 'Soirée', 10.83, NULL, 'Remb. soirée Adam');
+INSERT INTO transactions VALUES (67, 'Lucas', '2026-01-25', 'Soirée', 10.83, NULL, 'Remb. soirée Adam');
+INSERT INTO transactions VALUES (68, 'Chloé', '2026-01-25', 'Soirée', 10.83, NULL, 'Remb. soirée Adam');
+INSERT INTO transactions VALUES (69, 'Nathan', '2026-01-25', 'Soirée', 10.83, NULL, 'Remb. soirée Adam');
+INSERT INTO transactions VALUES (70, 'Emma', '2026-01-26', 'Cadeau', NULL, 35.00, 'Cadeau départ Théo');
+INSERT INTO transactions VALUES (71, 'Léa', '2026-01-26', 'Cadeau', NULL, 35.00, 'Cadeau départ Théo');
+INSERT INTO transactions VALUES (72, 'Chloé', '2026-01-27', 'McDo', NULL, 19.80, 'McDo soir (2 pers.)');
+INSERT INTO transactions VALUES (73, 'Nathan', '2026-01-27', 'McDo', 9.90, NULL, 'Remb. McDo Chloé');
+INSERT INTO transactions VALUES (74, 'Jade', '2026-01-28', 'Courses', NULL, 51.20, 'Courses raclette (5 pers.)');
+INSERT INTO transactions VALUES (75, 'Hugo', '2026-01-28', 'Courses', 10.24, NULL, 'Remb. raclette Jade');
+INSERT INTO transactions VALUES (76, 'Léa', '2026-01-28', 'Courses', 10.24, NULL, 'Remb. raclette Jade');
+INSERT INTO transactions VALUES (77, 'Adam', '2026-01-28', 'Courses', 10.24, NULL, 'Remb. raclette Jade');
+INSERT INTO transactions VALUES (78, 'Lucas', '2026-01-28', 'Courses', 10.24, NULL, 'Remb. raclette Jade');
+INSERT INTO transactions VALUES (79, 'Inès', '2026-01-29', 'Loyer', NULL, 420.00, 'Loyer février (avance)');
+INSERT INTO transactions VALUES (80, 'Théo', '2026-01-29', 'Loyer', NULL, 420.00, 'Loyer février (avance)');
+INSERT INTO transactions VALUES (81, 'Nathan', '2026-01-30', 'Resto', NULL, 44.00, 'Burger gourmet x2');
+INSERT INTO transactions VALUES (82, 'Emma', '2026-01-30', 'Resto', 22.00, NULL, 'Remb. burger Nathan');
+INSERT INTO transactions VALUES (83, 'Lucas', '2026-01-31', 'Kebab', NULL, 16.00, 'Kebabs x2');
+INSERT INTO transactions VALUES (84, 'Hugo', '2026-01-31', 'Kebab', 8.00, NULL, 'Remb. kebab Lucas');
+INSERT INTO transactions VALUES (85, 'Chloé', '2026-01-31', 'Uber', NULL, 31.00, 'Uber retour soirée (3 pers.)');
+INSERT INTO transactions VALUES (86, 'Emma', '2026-01-31', 'Uber', 10.33, NULL, 'Remb. Uber Chloé');
+INSERT INTO transactions VALUES (87, 'Jade', '2026-01-31', 'Uber', 10.33, NULL, 'Remb. Uber Chloé');
+INSERT INTO transactions VALUES (88, 'Adam', '2026-01-31', 'Resto', NULL, 88.00, 'Restau fin de mois (4 pers.)');
+INSERT INTO transactions VALUES (89, 'Hugo', '2026-01-31', 'Resto', 22.00, NULL, 'Remb. restau Adam');
+INSERT INTO transactions VALUES (90, 'Léa', '2026-01-31', 'Resto', 22.00, NULL, 'Remb. restau Adam');
+INSERT INTO transactions VALUES (91, 'Inès', '2026-01-31', 'Resto', 22.00, NULL, 'Remb. restau Adam');
+INSERT INTO transactions VALUES (92, 'Lucas', '2026-01-31', 'Loyer', NULL, 450.00, NULL);
+INSERT INTO transactions VALUES (93, 'Nathan', '2026-01-31', 'Courses', NULL, 29.90, NULL);
+INSERT INTO transactions VALUES (94, 'Emma', '2026-01-31', 'Courses', 14.95, NULL, NULL);
+INSERT INTO transactions VALUES (95, 'Hugo', '2026-01-31', 'Soirée', NULL, 40.00, NULL);
