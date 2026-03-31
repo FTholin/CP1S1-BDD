@@ -66,7 +66,7 @@ Quel est le **montant total** de la colonne `sortie` ?
 > `COUNT(colonne)` ne compte que les valeurs **non NULL**. C'est la clé ici.
 ---
 ### Records et extrêmes
-**6.** Quelle est la **plus grosse avance** (sortie) du mois ? Qui l'a faite et dans quelle catégorie ?
+**6.** Quels sont les 2 **plus grosses avances** (sortie) du mois  ?
 
 > **Résultat attendu :**
 >
@@ -77,7 +77,7 @@ Quel est le **montant total** de la colonne `sortie` ?
 >
 > *(Lucas apparaît deux fois car il a payé 450 € de loyer à deux dates différentes : janvier et février en avance.)*
 ---
-**7.** Quel est le **plus gros remboursement** (entrée) effectué par quelqu'un ?
+**7.** Quels sont les **plus gros remboursements** (entrée) effectué par quelqu'un ?
 
 > **Résultat attendu :**
 >
