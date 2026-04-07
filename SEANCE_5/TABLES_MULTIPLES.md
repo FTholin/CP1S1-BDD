@@ -807,13 +807,13 @@ Ce que fait chaque partie :
 ---
 
 ## 🏆 Boss Final — Jointure de 3 tables
-
+ 
 On peut enchaîner **plusieurs `JOIN`** dans la même requête. La table `reservations` sert de **table pivot** car elle contient les clés étrangères vers les deux autres tables.
-
+ 
 Voici le principe :
-
+ 
 **Table `voyageurs`** ←JOIN→ **Table `reservations`** ←JOIN→ **Table `destinations`**
-
+ 
 ```sql
 SELECT v.prenom,
        d.ville,
@@ -825,61 +825,65 @@ JOIN voyageurs AS v
 JOIN destinations AS d
   ON r.id_destination = d.id_destination;
 ```
-
+ 
 **Résultat** (extrait) — on obtient enfin le nom du voyageur ET la destination dans une seule requête :
-
+ 
 | prenom | ville | pays | prix_total |
 |---|---|---|---|
 | Hugo | Barcelone | Espagne | 320 |
 | Hugo | Marrakech | Maroc | 580 |
 | Emma | Tokyo | Japon | 1890 |
 | Emma | Bangkok | Thaïlande | 980 |
-
+ 
 Remarquez l'usage des alias `r`, `v`, `d` : avec trois tables, ils deviennent indispensables pour garder la requête lisible.
-
+ 
 ### À vous de jouer ! 🤠
-
+ 
 1. Écrivez la requête de jointure de 3 tables ci-dessus. Triez par `prenom` puis par `date_depart`. Combien de lignes ?
-
+ 
 <details>
 <summary>Vérification ✅</summary>
 <p><strong>20 lignes</strong> (pas 22 : les 2 réservations du voyageur n°11 sont exclues car il n'existe pas dans <code>voyageurs</code>).</p>
 </details>
-
+ 
 2. Ajoutez un `WHERE` pour ne garder que les voyages des **20 ans** (`age = 20`).
-
+ 
 <details>
 <summary>Vérification ✅</summary>
 <p><strong>8 réservations</strong> : Hugo (Barcelone, Marrakech), Lucas (Barcelone, New York), Chloé (Barcelone, Rome), Théo (Lisbonne, Barcelone).</p>
 </details>
-
+ 
 3. Ajoutez un `WHERE` pour ne garder que les destinations en **Asie**. Qui y va ?
-
+ 
 <details>
 <summary>Vérification ✅</summary>
 <p><strong>2 réservations</strong> : Emma part à Tokyo (1890 €) et à Bangkok (980 €). C'est la seule à partir en Asie !</p>
 </details>
-
+ 
 4. Affichez le `prenom` et la `ville` pour toutes les réservations dont le `prix_total` dépasse **1000 €**. (C'est l'exercice que vous ne pouviez pas finir en section 4 !)
-
+ 
 <details>
 <summary>Vérification ✅</summary>
-<p>Emma → Tokyo (1890 €), Emma → Bangkok (980 €... non, < 1000), Inès → deux destinations à vérifier. Construisez la requête avec les 3 tables et <code>WHERE r.prix_total > 1000</code>.</p>
+<p><strong>3 réservations</strong> :</p>
+<ul>
+  <li>Emma → Tokyo (1 890 €)</li>
+  <li>Lucas → New York (1 450 €)</li>
+  <li>Inès → New York (1 280 €)</li>
+</ul>
+<p>Attention : Bangkok (980 €) et Dakar (1 000 €) sont exclus car le filtre est strictement <code>> 1000</code>.</p>
 </details>
-
+ 
 5. **Défi ultime** : Affichez pour chaque **tranche d'âge** (19, 20, 21 ans) le nombre total de réservations, le budget total et le budget moyen par voyage (arrondi à 0 décimale). Triez par budget total décroissant.
-
+ 
 <details>
 <summary>Indice 🔑</summary>
 <p>Jointure de 3 tables, puis <code>GROUP BY v.age</code>. Utilisez <code>COUNT</code>, <code>SUM</code> et <code>ROUND(AVG(...))</code>.</p>
 </details>
-
+ 
 <details>
 <summary>Vérification ✅</summary>
 <p>21 ans : 6 réservations, 6 650 € au total, 1 108 € en moyenne.<br>20 ans : 8 réservations, 4 340 € au total, 543 € en moyenne.<br>19 ans : 6 réservations, 2 100 € au total, 350 € en moyenne.</p>
 </details>
-
----
 
 ## 11. Récapitulatif
 
